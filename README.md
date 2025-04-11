@@ -21,7 +21,7 @@ Après analyse du dump mémoire d’un ordinateur infecté par WannaCry, plusieu
    - Entropie élevée (8.00), suggérant un chiffrement ou packing  
    - Localisation : `C:\Users\Test-gic\Desktop\`
 
-2. **@WanaDecryptor@.exe**  
+2. **@\WanaDecryptor@.exe**  
    - PIDs : 3344, 3564, 3988  
    - Affiche l’interface de rançon  
    - Localisation : `C:\Users\Test-gic\Desktop\`
