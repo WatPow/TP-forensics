@@ -36,7 +36,7 @@ Après analyse du dump mémoire d’un ordinateur infecté par WannaCry, plusieu
 
 ### 3 - Le malware s’est connecté à ses probables C2 en HTTPS. Quelles sont leurs adresses IP ?
 
-**Adresses IP identifiées à partir du dump mémoire analysé avec MemProcFR**  
+**Adresses IP identifiées à partir du dump mémoire analysé avec MemProcFS**
 Port utilisé : 443 (HTTPS)
 
 1. **212.129.38.254:443**  
