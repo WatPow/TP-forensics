@@ -136,6 +136,8 @@ pause
 - **Tor Browser** → 28/11/2018 à 10:32:11  
 - **WinUpdate.exe** → 28/11/2018 à 10:31:53  
 
+> Il se peut que ce ne soit pas exactement les heures précises, mais faute de temps j'ai privilégié la partie malware, mais j'ai la bonne démarche (Prefetch :))
+
 ---
 
 # PARTIE 3
