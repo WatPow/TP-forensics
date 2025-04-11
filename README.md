@@ -14,7 +14,7 @@ Je n'ai pas utilisé Volatility2 mais Volatility3, il n'y a donc pas de "profil"
 
 Après analyse du dump mémoire d’un ordinateur infecté par WannaCry, plusieurs processus suspects ont été identifiés :
 
-Malveillant : tasksche.exe
+Malveillant : **tasksche.exe**
 
 Suspect :
 1. **ed01ebfbc9eb5bbea545af4d01bf5f1071661840480439c6e5babe8e080e41aa.exe**  
