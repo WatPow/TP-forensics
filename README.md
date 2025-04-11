@@ -59,6 +59,8 @@ Commande utilisée :
 ```
 "C:\Users\cyber\Desktop\MEMORY\VolatilityWorkbench\vol.exe" -f "E:\EVAL\Partie Memoire\eval_dump.raw" windows.registry.hivelist.HiveList 
 ```
+
+```
 Offset	FileFullPath	File output
 0xf8a0006d0010	\Device\HarddiskVolume1\Boot\BCD	Disabled
 0xf8a0006d2010	\SystemRoot\System32\Config\SOFTWARE	Disabled
@@ -67,14 +69,18 @@ Offset	FileFullPath	File output
 0xf8a0009d3010	\??\C:\Windows\ServiceProfiles\NetworkService\NTUSER.DAT	Disabled
 0xf8a000a58420	\??\C:\Windows\ServiceProfiles\LocalService\NTUSER.DAT	Disabled
 0xf8a000e03010	\??\C:\Users\Test-gic\ntuser.dat	Disabled
+```
 
 #### Recherche dans la ruche avec l'offset
 
 ```
 "C:\Users\cyber\Desktop\MEMORY\VolatilityWorkbench\vol.exe" -f "E:\EVAL\Partie Memoire\eval_dump.raw" windows.registry.printkey.PrintKey --offset 0xf8a000e03010 --key Software\Microsoft\Windows\CurrentVersion\Run 
 ```
+
+```
 Last Write Time	Hive Offset	Type	Key	Name	Data	Volatile
 2019-03-28 13:40:01.000000 UTC	0xf8a000e03010	REG_SZ	\??\C:\Users\Test-gic\ntuser.dat\Software\Microsoft\Windows\CurrentVersion\Run	vszfzinpcporhed956	""C:\Users\Test-gic\Desktop\tasksche.exe""	False
+```
 
 ---
 
