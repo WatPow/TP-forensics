@@ -127,7 +127,7 @@ pause
 
 ### Fichiers trouvés :
 
-- **Tor Browser** → Date inconnue  
+- **Tor Browser** → 28/11/2018 à 10:32:11  
 - **WinUpdate.exe** → 28/11/2018 à 10:31:53  
 
 ---
