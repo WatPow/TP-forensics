@@ -1,4 +1,4 @@
-# TP-forensics
+# Eval-forensics
 
 # 🕵️ ANALYSE MEMOIRE – PARTIE 1
 
@@ -8,7 +8,7 @@
 
 Je n'ai pas utilisé Volatility2 mais Volatility3, il n'y a donc pas de "profil" car vol3 détecte automatiquement le profil
 
-### 1 - Quel est le nom du processus malveillant et son PID ?
+### 2 - Quel est le nom du processus malveillant et son PID ?
 
 **Processus suspects identifiés dans le dump mémoire**
 
@@ -34,16 +34,6 @@ Après analyse du dump mémoire d’un ordinateur infecté par WannaCry, plusieu
 
 ---
 
-### 2 - Chaîne d'infection
-
-- Le malware initial (`ed01ebfbc9eb5b...exe`) a été exécuté depuis le Bureau  
-- Il a lancé plusieurs instances de `@WanaDecryptor@.exe`  
-- L’une des instances a ensuite lancé `taskhsvc.exe` depuis `TaskData\Tor`  
-
-Les entropies élevées indiquent des mécanismes de chiffrement typiques d’un ransomware.
-
----
-
 ### 3 - Le malware s’est connecté à ses probables C2 en HTTPS. Quelles sont leurs adresses IP ?
 
 **Adresses IP identifiées à partir du dump mémoire analysé avec MemProcFR**  
@@ -58,7 +48,7 @@ Port utilisé : 443 (HTTPS)
    - État : CLOSED
 
 Ces connexions ont été établies par un binaire situé dans `TaskData\Tor\`, ce qui laisse penser à une utilisation de Tor.  
-Ces adresses IP sont bien reconnues comme des IOCs de WannaCry en source ouverte.
+Après une recherche OSINT, je confirme que ces adresses IP sont bien reconnues comme des IOCs de WannaCry.
 
 ---
 
@@ -67,13 +57,24 @@ Ces adresses IP sont bien reconnues comme des IOCs de WannaCry en source ouverte
 Commande utilisée :
 
 ```
-vol.exe -f "E:\EVAL\Partie Memoire\eval_dump.raw" windows.registry.hivelist.HiveList
+"C:\Users\cyber\Desktop\MEMORY\VolatilityWorkbench\vol.exe" -f "E:\EVAL\Partie Memoire\eval_dump.raw" windows.registry.hivelist.HiveList 
 ```
+Offset	FileFullPath	File output
+0xf8a0006d0010	\Device\HarddiskVolume1\Boot\BCD	Disabled
+0xf8a0006d2010	\SystemRoot\System32\Config\SOFTWARE	Disabled
+0xf8a0008bd010	\SystemRoot\System32\Config\SECURITY	Disabled
+0xf8a00091a420	\SystemRoot\System32\Config\SAM	Disabled
+0xf8a0009d3010	\??\C:\Windows\ServiceProfiles\NetworkService\NTUSER.DAT	Disabled
+0xf8a000a58420	\??\C:\Windows\ServiceProfiles\LocalService\NTUSER.DAT	Disabled
+0xf8a000e03010	\??\C:\Users\Test-gic\ntuser.dat	Disabled
 
-**Résultat :**  
-- Ruche : `ntuser.dat`  
-- Chemin : `\??\C:\Users\Test-gic\ntuser.dat`  
-- Statut : Disabled  
+#### Recherche dans la ruche avec l'offset
+
+```
+"C:\Users\cyber\Desktop\MEMORY\VolatilityWorkbench\vol.exe" -f "E:\EVAL\Partie Memoire\eval_dump.raw" windows.registry.printkey.PrintKey --offset 0xf8a000e03010 --key Software\Microsoft\Windows\CurrentVersion\Run 
+```
+Last Write Time	Hive Offset	Type	Key	Name	Data	Volatile
+2019-03-28 13:40:01.000000 UTC	0xf8a000e03010	REG_SZ	\??\C:\Users\Test-gic\ntuser.dat\Software\Microsoft\Windows\CurrentVersion\Run	vszfzinpcporhed956	""C:\Users\Test-gic\Desktop\tasksche.exe""	False
 
 ---
 
