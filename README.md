@@ -163,7 +163,7 @@ pause
 - J'ai utilisé Procmon dans une VM et j'ai ajouté un filtre sur le malware.exe pour capter uniquements ces modifications
 Je l'ai claqué dans la VM R.I.P WindowsFlare mais voici ce que j'ai pu trouver (c'est pas exhaustif car il y a des centaines de Création/Modifications etc.)
 
-## 🔍 Type d’activité détectée
+#### 🔍 Type d’activité détectée
 
 - 1 démarrage de processus  
 - 21 créations de thread  
@@ -171,7 +171,7 @@ Je l'ai claqué dans la VM R.I.P WindowsFlare mais voici ce que j'ai pu trouver 
 - 743 accès/écritures sur des fichiers  
 - 15 modifications du registre  
 
-## 📁 Fichiers accédés ou créés
+#### 📁 Fichiers accédés ou créés
 
 - `C:\Windows\System32\OpenWith.exe` : 30 fois  
 - `C:\Users\aripotter\Desktop\EVAL\Partie Malware\ProcessMonitor\malware.exe` : 17 fois  
@@ -179,7 +179,7 @@ Je l'ai claqué dans la VM R.I.P WindowsFlare mais voici ce que j'ai pu trouver 
 - `C:\Windows\Microsoft.NET\assembly\GAC_64\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll` : 15 fois  
 - `C:\Windows\Microsoft.NET\assembly\GAC_64\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll` : 15 fois  
 
-## 🧠 Modifications du registre
+#### 🧠 Modifications du registre
 
 - `HKCU\Software\Classes\Local Settings` : 2 écriture(s)  
 - `HKCU\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing` : 1 écriture(s)  
@@ -187,7 +187,7 @@ Je l'ai claqué dans la VM R.I.P WindowsFlare mais voici ce que j'ai pu trouver 
 - `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace` : 1 écriture(s)  
 - `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\DelegateFolders` : 1 écriture(s)  
 
-## 🧾 Conclusion préliminaire
+#### 🧾 Conclusion préliminaire
 
 - Le binaire tente d’écrire dans le registre, possiblement pour établir une persistance.  
 - Des fichiers sont créés dans les chemins système ou de configuration, ce qui peut indiquer une activité malveillante.  
